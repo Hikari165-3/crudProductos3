@@ -1,0 +1,27 @@
+{% include 'header.html' %}
+<div class="row">
+    <!--creara 3 espacios de 4 cuadros -->
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+              Nuevo Producto
+            </div>
+            <div class="card-body">
+                <form action="{{url_for('productos_save')}}" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" name="descripcion">
+                        <label for="" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" name="cantidad">
+                        <label for="" class="form-label">Precio</label>
+                        <input type="number" class="form-control" step="0.1" name="precio">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+{% include 'footer.html' %}

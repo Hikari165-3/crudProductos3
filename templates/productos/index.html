@@ -1,0 +1,28 @@
+{% include 'header.html' %}
+        <h2>Listas de productos</h2>
+        <a href="{{url_for('create')}}" class="btn btn-success">Nuevo</a>
+    <!--buscar estilo table-striped table-hover-->
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">cantidad</th>
+                <th scope="col">precio</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in productos%}
+              <tr>
+                <!--item.descripcion-->
+                <th scope="row">{{ item['id']}}</th>
+                <td>{{item['descripción']}}</td>
+                <td>{{item['cantidad']}}</td>
+                <td>{{item['precio']}}</td>
+                <td><a href="/productos/edit/{{item['id']}}" class="btn btn-warning">Editar</a></td>
+                <td><a href="/productos/delete/{{item['id']}}" onclick="return(confirm('Esta seguroo???'))" class="btn btn-danger">Eliminar</a></td>
+              </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% include 'footer.html' %}
